@@ -4,34 +4,25 @@
 }
 
 .carousel__container {
+  padding-top: 4rem;
   margin: 0 auto;
   height: 100vh;
   width: 100vw;
   background-color: #f5f5f5;
 }
 
-.slider{
+.slider {
   position: relative;
-
-
- 
-}
-
-/* .slide__image{
-  height: 50vh;
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
-  border-radius: 15px;
-  background-image: url('https://i.redd.it/1ubakwq1jr741.jpg');
-  background-size: cover;
-  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-} */
-
-.leftArrow{
+.leftArrow {
   position: absolute;
   top: 50%;
-  left: 350px;
+  left: 10px;
   transform: translateY(-50%);
   height: 50px;
   width: 50px;
@@ -41,10 +32,10 @@
   z-index: 1;
 }
 
-.rightArrow{
+.rightArrow {
   position: absolute;
   top: 50%;
-  right: 350px;
+  right: 10px;
   transform: translateY(-50%);
   height: 50px;
   width: 50px;
@@ -54,3 +45,20 @@
   z-index: 1;
 }
 
+.dots__wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+  .slider {
+    width: 90%;
+  }
+}
+  

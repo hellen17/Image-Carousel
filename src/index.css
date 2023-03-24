@@ -1,0 +1,56 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+}
+
+.carousel__container {
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+}
+
+.slider{
+  position: relative;
+
+
+ 
+}
+
+/* .slide__image{
+  height: 50vh;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-image: url('https://i.redd.it/1ubakwq1jr741.jpg');
+  background-size: cover;
+  background-position: center;
+
+} */
+
+.leftArrow{
+  position: absolute;
+  top: 50%;
+  left: 350px;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.rightArrow{
+  position: absolute;
+  top: 50%;
+  right: 350px;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+

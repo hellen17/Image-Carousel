@@ -23,22 +23,25 @@ export default function ImageSlider({ slides }) {
     clearInterval(timer.current);
     timer.current = setInterval(goToNext, 3000);
   };
-
+  
+  //styles
   const styleImage = {
     backgroundImage: `url(${slides[current]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     borderRadius: '10px',
-    height: '60vh',
+    border: '3px solid pink',
+    height: '70vh',
     width: '100%',
     margin: '0 auto',
   };
 
   const dotStyle = {
-    height: '20px',
-    width: '20px',
-    backgroundColor: '#bbb',
+    height: '15px',
+    width: '15px',
+    backgroundColor: 'transparent',
+    border: '3px solid pink',
     borderRadius: '50%',
     display: 'inline-block',
     margin: '0 2px',
@@ -48,7 +51,7 @@ export default function ImageSlider({ slides }) {
   const dots = slides.map((_, index) => (
     <div
       key={index}
-      style={{ ...dotStyle, backgroundColor: activeIndex === index ? 'pink' : '#bbb' }}
+      style={{ ...dotStyle, backgroundColor: activeIndex === index ? 'pink' : '' }}
       onClick={() => {
         setActiveIndex(index);
         setCurrent(index);
@@ -58,7 +61,8 @@ export default function ImageSlider({ slides }) {
   ));
 
   const timer = useRef(null);
-
+  
+  //display next image after 3 seconds
   useEffect(() => {
     timer.current = setInterval(goToNext, 3000);
     return () => clearInterval(timer.current);
@@ -76,7 +80,7 @@ export default function ImageSlider({ slides }) {
         </div>
 
         <div style={styleImage}></div>
-        <div className='dots__wrapper' style={{ textAlign: 'center', marginTop: '10px' }}>{dots}</div>
+        <div className='dots__wrapper' style={{ textAlign: 'center', marginBottom: '10px' }}>{dots}</div>
       </div>
     </>
   );

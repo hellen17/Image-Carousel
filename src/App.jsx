@@ -4,35 +4,29 @@ import './index.css'
 
 
 function App() {
-  // const [slides, setSlides] = useState([])
-
-  const slides = [
-    'https://i.redd.it/fj8vqooc8nd51.jpg',
-    'https://i.redd.it/nbf6kvcbwm741.jpg',
-    'https://i.redd.it/vd5ubvfxs1h31.jpg',
-    
-  ]
+  const [slides, setSlides] = useState([])
 
   console.log(slides)
 
-  //console.log(data.children[0].data.preview.images[0].source.url)
+  async function getImages() {
+    const response = await fetch('https://www.reddit.com/r/aww/top/.json?t=all')
+    const data = await response.json()
+    const images = data.data.children
+    //  extracts an array of image URLs from the data object.
+    .map(child => child.data.url_overridden_by_dest)
+    //  filters out any URLs that don't end with .jpg
+    .filter(url => url.toLowerCase().endsWith('.jpg'))
+    setSlides(images)
+  }
 
-
-  // async function getImages() {
-  //   const response = await fetch('https://www.reddit.com/r/aww/top/.json?t=all')
-  //   const data = await response.json()
-  //   const images = data.data.children.map((image) => image.data.url)
-  //   setSlides(images)
-  // }
-
-  // useEffect(() => {
-  //   getImages()
-  // }, [])
-
-
+  // call getImages() when the component mounts.
+  useEffect(() => {
+    getImages()
+  }, [])
 
   return (
     <div className="carousel__container">
+      <h1 className='heading__text'>Image Carousel</h1>
       <ImageSlider slides={slides} />
     </div>
   )

@@ -3,6 +3,10 @@
 
 }
 
+body{
+  overflow: hidden;
+}
+
 .carousel__container {
   padding-top: 4rem;
   margin: 0 auto;
